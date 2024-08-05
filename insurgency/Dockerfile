@@ -20,6 +20,13 @@ RUN chown -R steam /steam/${GAME}/ \
 
 USER steam
 
-RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir ../${GAME} +app_update ${APP_ID} +quit
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
+ARG CACHE_DATE
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
+
+ADD default_server_cooperative.cfg /steam/insurgency2/insurgency/cfg/default_server_cooperative.cfg
+
+COPY start.sh \
+./
 
 ENTRYPOINT ["./start.sh"]
