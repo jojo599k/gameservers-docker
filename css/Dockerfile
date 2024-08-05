@@ -7,19 +7,17 @@ RUN dpkg --add-architecture i386; apt-get update;  apt-get install -y libstdc++6
 ENV GAME=css
 ENV APP_ID=232330
 
-RUN mkdir -p /steam/${GAME}/.cache/ \
-  && touch /steam/${GAME}/.cache/empty
 WORKDIR /steam/${GAME}/
-COPY .cache .
 
-RUN chown -R steam /steam/${GAME}/ \
-  && mv .cache/* . \
-  && rm -fr .cache
-
-COPY start.sh .
+RUN chown -R steam /steam/${GAME}/
 
 USER steam
 
-RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir ../${GAME} +app_update ${APP_ID} +quit
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
+ARG CACHE_DATE
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
+
+COPY start.sh \
+./
 
 ENTRYPOINT ["./start.sh"]
