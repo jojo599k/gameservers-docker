@@ -3,6 +3,7 @@ ARG DISTRO="20.04"
 FROM ubuntu:${DISTRO}
 
 ARG TZ="Etc/UTC"
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get dist-upgrade -y \
     && apt-get install -y \
