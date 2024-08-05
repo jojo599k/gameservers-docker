@@ -18,6 +18,26 @@ function moveToDir {
     rm -fr "${lSource}"
 }
 
+function sparseCloneAndMove {
+    local lWorkingDir=$(pwd)
+
+    local lRepo="$1"
+    local lBasename=$(basename $1 .git)
+    local lPaths="$2"
+    local lDestination="$3"
+
+    mkdir -p "${lDestination}"
+    local lRealPath=$(realpath "${lDestination}")
+
+    git clone --depth=1 "${lRepo}"
+    cd "${lBasename}"
+    git sparse-checkout set "${lPaths}"
+    for p in "${lPaths[@]}"; do mv "$p" "${lRealPath}"; done
+    cd "${lWorkingDir}"
+
+    rm -fr "${lBasename}"
+}
+
 function unzipAndMoveToDir {
     local lArchive="$1"
     local lDestination="$2"

@@ -6,7 +6,7 @@ source zip-utils.sh
 
 # [L4D(2)] MultiSlots Improved Version 4.0 (2021/8/25)
 # https://forums.alliedmods.net/showpost.php?p=2715546&postcount=249
-curl -o l4dmultislots.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=194715&d=1650125518'
+curl -o l4dmultislots.zip 'https://web.archive.org/web/20220412091610if_/https://forums.alliedmods.net/attachment.php?s=cd319686aceb67ab3b0f13e22acaf327&attachmentid=193689&d=1644757794'
 unzipAndMoveToDir l4dmultislots.zip "${SOURCEMOD_DIR}/" "l4dmultislots"
 
 # Left 4 DHooks Direct
@@ -35,37 +35,37 @@ unzipAndMoveToDir multicolors.zip "${ADDONS_DIR}/" "Multi-Colors-master/addons"
 
 # LEFT 4 FIX
 
-# [L4D2]Defib_Fix[Left 4 Fix][11/05/2021]
+# [L4D2]Defib_Fix[Left 4 Fix][28/02/2023]
 # https://forums.alliedmods.net/showthread.php?p=2647018
-curl -o Defib_Fix.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=189234&d=1620748700'
+curl -o Defib_Fix.zip 'https://web.archive.org/web/20240609154929if_/https://forums.alliedmods.net/attachment.php?attachmentid=199744&d=1677587553'
 unzipLzmaAndMoveToDir Defib_Fix.zip "${LEFT4DEAD2_DIR}/"
 
-# [L4D2]Charger_Collision_patch[Left 4 Fix][06/04/2022]
+# [L4D2]Charger_Collision_patch[Left 4 Fix][05/03/2024]
 # https://forums.alliedmods.net/showthread.php?t=315482
-curl -o Charger_Collision_patch.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=194569&d=1649300386'
+curl -o Charger_Collision_patch.zip 'https://web.archive.org/web/20240614133204if_/https://forums.alliedmods.net/attachment.php?attachmentid=203585&d=1709629833'
 unzipLzmaAndMoveToDir Charger_Collision_patch.zip "${ADDONS_DIR}/"
 
-# [L4D & L4D2]Witch fixes[Left 4 Fix]
+# [L4D & L4D2]Witch fixes[Left 4 Fix][29/05/2024]
 # https://forums.alliedmods.net/showthread.php?p=2647014
-curl -o witchfixes.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=193451&d=1643848983'
+curl -o witchfixes.zip 'https://web.archive.org/web/20240609232653if_/https://forums.alliedmods.net/attachment.php?attachmentid=204480&d=1717034682'
 unzipLzmaAndMoveToDir witchfixes.zip "${SOURCEMOD_DIR}/" "witch/witch_allow_in_safezone"
 unzipLzmaAndMoveToDir witchfixes.zip "${SOURCEMOD_DIR}/" "witch/Witch_Double_Startle_Fix"
 unzipLzmaAndMoveToDir witchfixes.zip "${SOURCEMOD_DIR}/" "witch/witch_prevent_target_loss"
 unzipLzmaAndMoveToDir witchfixes.zip "${SOURCEMOD_DIR}/" "witch/witch_target_patch"
 
-# [L4D & L4D2]Physics Object Pushfix[Left 4 Fix]
+# [L4D & L4D2]Physics Object Pushfix[Left 4 Fix][28/02/2023]
 # https://forums.alliedmods.net/showthread.php?p=2705656#post2705656
-curl -o physics_object_pushfix.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=183790&d=1600989720'
+curl -o physics_object_pushfix.zip 'https://web.archive.org/web/20240616022730if_/https://forums.alliedmods.net/attachment.php?attachmentid=183790&d=1600989720'
 unzipLzmaAndMoveToDir physics_object_pushfix.zip "${LEFT4DEAD2_DIR}/"
 
-# [L4D1 & L4D2]Survivor_AFK_Fix[Left 4 Fix][25/09/2020]
+# [L4D1 & L4D2]Survivor_AFK_Fix[Left 4 Fix][28/02/2023]
 # https://forums.alliedmods.net/showthread.php?p=2714236
-curl -o survivor_afk_fix.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=189803&d=1623834645'
+curl -o survivor_afk_fix.zip 'https://web.archive.org/web/20240614062222if_/https://forums.alliedmods.net/attachment.php?attachmentid=189803&d=1623834645'
 unzipLzmaAndMoveToDir survivor_afk_fix.zip "${LEFT4DEAD2_DIR}/"
 
-# [L4D2] Proper Changelevel [Left 4 Fix] [17/11/2019]
+# [L4D2] Proper Changelevel [Left 4 Fix] [02/10/2020]
 # https://forums.alliedmods.net/showthread.php?p=2669850
-curl -o l4d2_levelchanging.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=178784&d=1576565208'
+curl -o l4d2_levelchanging.zip 'https://web.archive.org/web/20240610013641if_/https://forums.alliedmods.net/attachment.php?attachmentid=178784&d=1576565208'
 unzipLzmaAndMoveToDir l4d2_levelchanging.zip "${LEFT4DEAD2_DIR}/"
 
 # OTHER FIXES
@@ -90,10 +90,7 @@ mv myl4d2addons_original_talker.vpk "${ADDONS_DIR}/"
 # L4D2-PLUGINS
 
 # https://github.com/fbef0102/L4D2-Plugins
-git clone 'https://github.com/fbef0102/L4D2-Plugins'
-# L4D2 coop save weapon
-# https://github.com/fbef0102/L4D2-Plugins/tree/master/l4d2_ty_saveweapons
-moveToDir "L4D2-Plugins/l4d2_ty_saveweapons" "${SOURCEMOD_DIR}"
+sparseCloneAndMove 'https://github.com/fbef0102/L4D2-Plugins' "l4d2_ty_saveweapons" "${SOURCEMOD_DIR}"
 
 # [L4D2]Character_manager (1.4.1 - 22/09/2019 )
 # https://forums.alliedmods.net/showthread.php?t=309601
@@ -124,7 +121,6 @@ unzipAndMoveToDir survivor_hunter_pounced_clones_fix.zip "${LEFT4DEAD2_DIR}/"
 curl -o l4d_hp_laser.smx 'https://www.sourcemod.net/vbcompiler.php?file_id=189361'
 mv l4d_hp_laser.smx "${SOURCEMOD_PLUGINS_DIR}/"
 
-# Infected Bots Control Improved Version 2.7.3 (2022/8/18 )
+# Infected Bots Control Improved Version 2.7.3 (2024/03/25)
 # https://forums.alliedmods.net/showthread.php?p=2699220#post2699220
-curl -o l4dinfectedbots.zip 'https://forums.alliedmods.net/attachment.php?attachmentid=196355&d=1660780819'
-unzipAndMoveToDir l4dinfectedbots.zip "${SOURCEMOD_DIR}/" "l4dinfectedbots"
+sparseCloneAndMove https://github.com/fbef0102/L4D1_2-Plugins.git "l4dinfectedbots" "${SOURCEMOD_DIR}"

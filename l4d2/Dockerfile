@@ -2,7 +2,12 @@ FROM steamcmd
 
 # Dear srcds, plz don't crash. We have brought you these offerings.
 USER root
-RUN dpkg --add-architecture i386; apt-get update;  apt-get install -y libstdc++6:i386 libcurl4-gnutls-dev:i386
+RUN dpkg --add-architecture i386 \
+    && apt-get update \
+    && apt-get install -y \
+        libstdc++6:i386 \
+        libcurl4-gnutls-dev:i386 \
+        rsync
 
 ENV GAME=l4d2
 ENV APP_ID=222860
