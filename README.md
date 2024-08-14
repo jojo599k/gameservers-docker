@@ -151,6 +151,13 @@ Make an easy way to import config files in to the servers (eg mounting cfg direc
 
 Add more games
 
+### Useful scripts
+
+- Remove container data
+```
+sudo rm -fr /var/lib/docker/containers && sudo mkdir containers && sudo chmod 700 containers
+```
+
 ### LICENSE
 
 This project is licensed under GPL 3.0. See LICENSE for more information.
