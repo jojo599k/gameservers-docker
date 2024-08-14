@@ -1,5 +1,7 @@
 FROM csgo
 
+USER root
+
 WORKDIR /steam/csgo/
 USER steam
 ADD download.sh .

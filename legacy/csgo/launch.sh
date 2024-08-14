@@ -1,7 +1,6 @@
 #!/bin/bash
 
-set -e
-set -u
+cd /steam/${GAME}/
 
 if [[ -n $SOURCETV_ADDR ]]
 then
