@@ -2,7 +2,7 @@
 
 set -e
 
-source zip-utils.sh
+source /steam/scripts/zip-utils.sh
 
 # [L4D(2)] MultiSlots Improved Version 4.0 (2021/8/25)
 # https://forums.alliedmods.net/showpost.php?p=2715546&postcount=249

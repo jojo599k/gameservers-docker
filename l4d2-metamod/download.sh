@@ -2,7 +2,7 @@
 
 set -e
 
-source zip-utils.sh
+source /steam/scripts/zip-utils.sh
 
 MMVERSION=$( curl https://www.sourcemm.net/downloads.php/?branch=stable | grep -o "mmsource-[0-9\.]*-git[0-9]\+-linux.tar.gz" | head -n 1 )
 MMMAJORVERSION=$(echo $MMVERSION | cut -d '-' -f 2 | cut -d '.' -f 1,2 )
