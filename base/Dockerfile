@@ -20,6 +20,7 @@ RUN apt-get update \
         software-properties-common\
         apt-transport-https\
         lib32stdc++6\
+        rsync \
     && apt-get clean
 RUN echo "$TZ" > /etc/timezone
 RUN  ln -fs /usr/share/zoneinfo/$TZ /etc/localtime

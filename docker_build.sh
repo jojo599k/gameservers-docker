@@ -17,7 +17,7 @@ do
     echo "Building ${i}..."
     cd ${i}
     echo "Using CACHE_DATE in case updates have been made..."
-    DOCKER_BUILDKIT=1 docker build . --build-arg CACHE_DATE="$(date)" -t ${i}
+    DOCKER_BUILDKIT=1 docker build --progress=plain --build-arg CACHE_DATE="$(date)" -t ${i} .
     cd ${BASE_DIR}
 done
 
