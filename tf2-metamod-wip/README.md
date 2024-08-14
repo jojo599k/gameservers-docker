@@ -7,10 +7,6 @@ This has sourcemod and metamod installed, with the following additional plugins 
 * randomcycle
 * rockthevote
 
-The following configuration is available via setting environment variables
+Optional plugins
 
-```
-hostname $SV_HOSTNAME
-rcon_password $RCON_PASSWORD
-sv_password $SV_PASSWORD
-```
+-   (Bot Manager)[https://forums.alliedmods.net/showthread.php?p=1983621] - Set PLUGIN_BOT_MANAGER env to non-empty value
