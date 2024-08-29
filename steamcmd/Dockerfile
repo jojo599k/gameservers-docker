@@ -23,7 +23,6 @@ USER steam
 
 WORKDIR /steam/steamcmd_linux
 
-RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz 
-RUN tar -xf steamcmd_linux.tar.gz
-
-RUN ./steamcmd.sh +login anonymous +quit
+RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
+    && tar -xf steamcmd_linux.tar.gz \
+    && ./steamcmd.sh +login anonymous +quit

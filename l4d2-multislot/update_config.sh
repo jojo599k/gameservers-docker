@@ -42,5 +42,5 @@ l4d2_survivor_set "3"
 // Default: "0"
 // Minimum: "0.000000"
 // Maximum: "1.000000"
-l4d2_manage_people "0" 
+l4d2_manage_people "0"
 EOF

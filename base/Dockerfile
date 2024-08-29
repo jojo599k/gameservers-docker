@@ -13,14 +13,15 @@ RUN apt-get update \
         curl\
         wget\
         lib32gcc1\
+        lib32stdc++6\
         iproute2\
         vim-tiny\
         bzip2\
         jq\
         software-properties-common\
         apt-transport-https\
-        lib32stdc++6\
         rsync \
     && apt-get clean
-RUN echo "$TZ" > /etc/timezone
-RUN  ln -fs /usr/share/zoneinfo/$TZ /etc/localtime
+
+RUN echo "$TZ" > /etc/timezone \
+    && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime
