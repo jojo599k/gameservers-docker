@@ -3,6 +3,7 @@
 set -e
 
 BASE_DIR=$(pwd)
+export DOCKER_BUILDKIT=${DOCKER_BUILDKIT:-1}
 
 mkdir -p .cache
 
@@ -17,9 +18,7 @@ do
     echo "Building ${i}..."
     cd ${i}
     echo "Using CACHE_DATE in case updates have been made..."
-    DOCKER_BUILDKIT=1 \
         docker build \
-        --progress=plain \
         --build-arg CACHE_DATE="$(date)" \
         -t ${i} \
         -t ${i}:latest \
