@@ -17,7 +17,7 @@
 
 # fill   = If a player joins, the Bot will be kicked
 # normal = If a player joins, the Bot won´t be kicked
-[[ -z $BOT_QUOTA_MODE ]] && BOT_QUOTA_MODE=normal
+[[ -z $BOT_QUOTA_MODE ]] && BOT_QUOTA_MODE=fill
 
 # bots populate after a player joins the server
 # 0 = bots always present
@@ -34,7 +34,7 @@
 
 # Bots defuse the bombs etc...
 # 0 = Bots allowed
-# 1 = Humans only)
+# 1 = Humans only
 [[ -z $BOT_DEFER_TO_HUMAN ]] && BOT_DEFER_TO_HUMAN=0
 
 # kick bot when slots fill

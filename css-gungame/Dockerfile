@@ -9,9 +9,9 @@ RUN ./download.sh
 
 WORKDIR /steam/css
 
-COPY gungame.config.txt /steam/css/addons/sourcemod/plugins/cfg/gungame/gungame.config.txt
-
-RUN echo -e "mp_ignore_round_win_conditions 1 " >> /steam/css/cstrike/cfg/server.cfg
+COPY gungame.config.txt /steam/css/cstrike/cfg/gungame/css/gungame.config.txt
+RUN mv configure.sh configure-base.sh
+COPY configure.sh .
 
 ENV SV_HOSTNAME="Counterstrike Source (GunGame)"
 

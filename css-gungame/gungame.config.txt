@@ -162,7 +162,7 @@
         "AlltalkOnWin" "1"
         
         /* Start voting if leader level is less maximum level by this value */
-        "VoteLevelLessWeaponCount" "2"
+        "VoteLevelLessWeaponCount" "0"
         
         /* Display a join message, popup giving players instructions on how to play */
         "JoinMessage" "1"
@@ -467,7 +467,7 @@
         "ExtraNade" "0"
 
         /* Gives unlimited hegrenades to the player if he is on nage level */
-        "UnlimitedNades" "0"
+        "UnlimitedNades" "1"
 
         /**
          * Enable UnlimitedNades depending on the number of players in team.
@@ -524,7 +524,7 @@
         "WarmupEnabled" "1"
 
         /* Warmup time length */
-        "WarmupTimeLength" "60"
+        "WarmupTimeLength" "30"
 
         /**
          * Give random weapon on warmup.
@@ -535,7 +535,7 @@
          * 2 - Random weapon every round
          * 3 - Random weapon every spawn
          */
-        "WarmupRandomWeaponMode" "0"
+        "WarmupRandomWeaponMode" "3"
 
         /**
          * Gives unlimited hegrenades to the player if warmup is enabled.
