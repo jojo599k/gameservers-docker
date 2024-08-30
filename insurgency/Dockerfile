@@ -20,7 +20,7 @@ RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam
 ARG CACHE_DATE
 RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
 
-ADD default_server_cooperative.cfg /steam/insurgency2/insurgency/cfg/default_server_cooperative.cfg
+COPY default_server_cooperative.cfg /steam/insurgency2/insurgency/cfg/default_server_cooperative.cfg
 
 COPY start.sh \
 ./

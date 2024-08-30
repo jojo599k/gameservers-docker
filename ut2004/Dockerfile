@@ -8,9 +8,9 @@ RUN dpkg --add-architecture i386 \
 
 WORKDIR ut2004
 
-ADD download.sh .
+COPY download.sh .
 RUN ./download.sh
 
-ADD start.sh .
+COPY start.sh .
 
-CMD ["./start.sh"]
+ENTRYPOINT ["./start.sh"]

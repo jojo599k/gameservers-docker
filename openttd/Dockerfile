@@ -11,7 +11,7 @@ RUN apt-get update \
 WORKDIR /tmp
 
 ARG DISTRO="focal"
-ADD download.sh .
+COPY download.sh .
 RUN ./download.sh
 
 USER root
@@ -26,7 +26,7 @@ USER openttd
 
 WORKDIR /usr/games
 
-ADD start.sh .
+COPY start.sh .
 
 VOLUME [ "/home/openttd/.openttd/save" ]
 

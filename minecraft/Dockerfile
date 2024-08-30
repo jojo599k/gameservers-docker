@@ -8,7 +8,7 @@ RUN echo "yes" | apt-get install -y oracle-java7-installer
 
 RUN adduser minecraft && mkdir /minecraft && chown minecraft:minecraft /minecraft
 WORKDIR /minecraft
-ADD minecraft_server*.jar start.sh advertise.py eula.txt server.properties /minecraft/
+COPY minecraft_server*.jar start.sh advertise.py eula.txt server.properties /minecraft/
 
 
 # This fails, 
