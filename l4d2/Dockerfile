@@ -15,9 +15,9 @@ RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam
 ARG CACHE_DATE
 RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
 
-COPY configure.sh ./ \
-    start.sh ./ \
-    server.cfg left4dead2/cfg/
+COPY configure.sh \
+    start.sh ./
+COPY server.cfg left4dead2/cfg/
 
 USER root
 RUN chown steam:steam left4dead2/cfg/server.cfg
