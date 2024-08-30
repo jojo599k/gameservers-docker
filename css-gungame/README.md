@@ -2,8 +2,6 @@
 
 Counterstrike Source Gun Game server based on the css-metamod docker image.
 
-No bot support!
-
 ## Build notes
 
 1. Build the `css` docker image
@@ -13,12 +11,3 @@ No bot support!
 ## Plugins
 
 * [CS:S/CS:GO GunGame](https://forums.alliedmods.net/showthread.php?t=93977)
-
-## Environment variables
-
-* `RCON_PASSWORD`
-* `SV_PASSWORD`
-* `SV_HOSTNAME`
-* `LAN`
-* `MAP`
-* `MAXPLAYERS`

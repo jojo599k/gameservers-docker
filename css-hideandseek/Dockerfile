@@ -4,12 +4,12 @@ USER steam
 
 WORKDIR /steam/css/cstrike
 
-ADD download.sh .
+COPY download.sh .
 RUN ./download.sh && \
 	unzip sm_hideandseek.zip
 
 WORKDIR /steam/css
 
-ADD start.sh .
+ENV SV_HOSTNAME="Counterstrike Source (Hide and Seek)"
 
 ENTRYPOINT [ "./start.sh" ]

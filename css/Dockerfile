@@ -13,7 +13,10 @@ RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam
 ARG CACHE_DATE
 RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
 
-COPY start.sh \
-./
+COPY configure.sh \
+    start.sh \
+    ./
+
+ENV SV_HOSTNAME="Counterstrike Source (Base)"
 
 ENTRYPOINT ["./start.sh"]

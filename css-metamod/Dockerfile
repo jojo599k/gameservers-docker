@@ -2,7 +2,7 @@ FROM css
 
 WORKDIR /steam/css/
 USER steam
-ADD download.sh .
+COPY download.sh .
 RUN ./download.sh
 
 RUN tar -xf mm*.tar.gz -C cstrike/ && \
@@ -12,8 +12,10 @@ RUN tar -xf mm*.tar.gz -C cstrike/ && \
 	mv cstrike/addons/sourcemod/plugins/disabled/randomcycle.smx cstrike/addons/sourcemod/plugins/randomcycle.smx && \
 	mv cstrike/addons/sourcemod/plugins/disabled/rockthevote.smx cstrike/addons/sourcemod/plugins/rockthevote.smx
 
-ADD metamod.vdf cstrike/
+COPY metamod.vdf cstrike/
 
-ADD start.sh .
+RUN echo '"$FULL_ADMINS" "@Full Admins"' > cstrike/addons/sourcemod/configs/admins_simple.ini
+
+ENV SV_HOSTNAME="Counterstrike Source (MetaMod)"
 
 ENTRYPOINT [ "./start.sh" ]

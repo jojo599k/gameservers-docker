@@ -1,15 +1,9 @@
 #!/bin/bash
 
-# local vars
-[[ $LAN -ge 1 ]] && LAN="1" || LAN="0"
-[[ -z "$MAP" ]] && MAP="de_dust"
-[[ -z $MAXPLAYERS ]] && MAXPLAYERS="24"
-[[ -z $SERVER_NUM ]] && SERVER_NUM="1"
-
 # Config file
 [[ -n $RCON_PASSWORD ]] && RCON_PASSWORD="$RCON_PASSWORD"
 [[ -n $SV_PASSWORD ]] && SV_PASSWORD="$SV_PASSWORD"
-[[ -z $SV_HOSTNAME ]] && SV_HOSTNAME="Counterstrike Source (Metamod)"
+[[ -z $SV_HOSTNAME ]] && SV_HOSTNAME="Counterstrike Source (Base)"
 
 # mp config
 [[ -z $MP_FRIENDLYFIRE ]] && MP_FRIENDLYFIRE=0
@@ -88,7 +82,3 @@ bot_allow_snipers $BOT_ALLOW_SNIPERS
 bot_allow_machine_guns $BOT_ALLOW_MACHINE_GUNS
 bot_allow_sub_machine_guns $BOT_ALLOW_SUB_MACHINE_GUNS
 EOF
-
-echo '"$FULL_ADMINS" "@Full Admins"' > css/addons/sourcemod/configs/admins_simple.ini
-
-exec ./srcds_run -game cstrike +sv_lan $LAN +ip 0.0.0.0 +map $MAP -usercon -port 27015 -maxplayers $MAXPLAYERS -secure $OTHER_ARGS $@
