@@ -6,7 +6,8 @@ Counterstrike Source Gun Game server based on the css-metamod docker image.
 
 1. Build the `css` docker image
 2. Build the `css-metamod` docker image
-3. Build this one!
+3. Build the `css-deathmatch` docker image
+4. Build this one!
 
 ## Plugins
 

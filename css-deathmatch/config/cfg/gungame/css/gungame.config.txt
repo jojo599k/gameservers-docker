@@ -467,7 +467,7 @@
         "ExtraNade" "0"
 
         /* Gives unlimited hegrenades to the player if he is on nage level */
-        "UnlimitedNades" "1"
+        "UnlimitedNades" "0"
 
         /**
          * Enable UnlimitedNades depending on the number of players in team.
@@ -524,7 +524,7 @@
         "WarmupEnabled" "1"
 
         /* Warmup time length */
-        "WarmupTimeLength" "30"
+        "WarmupTimeLength" "60"
 
         /**
          * Give random weapon on warmup.
@@ -535,7 +535,7 @@
          * 2 - Random weapon every round
          * 3 - Random weapon every spawn
          */
-        "WarmupRandomWeaponMode" "3"
+        "WarmupRandomWeaponMode" "0"
 
         /**
          * Gives unlimited hegrenades to the player if warmup is enabled.

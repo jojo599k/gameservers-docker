@@ -4,9 +4,10 @@ USER steam
 
 WORKDIR /steam/css/cstrike
 
-COPY download.sh .
-RUN ./download.sh && \
-	unzip sm_hideandseek.zip
+COPY --chown=steam download.sh \ 
+    configure.sh \
+    ./
+RUN ./download.sh
 
 WORKDIR /steam/css
 

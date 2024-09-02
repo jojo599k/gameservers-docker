@@ -11,9 +11,15 @@ USER steam
 
 RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
 ARG CACHE_DATE
-RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit \
+    && rm -f /steam/css/cstrike/maps/test_hardware.bsp \
+    && rm -f /steam/css/cstrike/maps/test_speakers.bsp
 
-COPY configure.sh \
+COPY --chown=steam \
+    config/ \
+    configure.sh \
+    configure-base.sh \
+    generate-mapcycle.sh \
     start.sh \
     ./
 
