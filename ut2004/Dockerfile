@@ -1,12 +1,16 @@
 FROM base
 
+RUN dpkg --add-architecture i386 \
+  && apt-get update \
+  && apt-get install -y libstdc++5:i386 \
+  && apt-get clean \
+  && mkdir ut2004
 
-RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y libstdc++5:i386 && apt-get clean
+WORKDIR ut2004
 
+COPY download.sh .
+RUN ./download.sh
 
+COPY start.sh .
 
-ADD server_files /ut2004
-ADD start-* /ut2004/
-
-CMD ["/ut2004/start-ut2004.sh"]
-# 
+ENTRYPOINT ["./start.sh"]

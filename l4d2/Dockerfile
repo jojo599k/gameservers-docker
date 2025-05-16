@@ -1,16 +1,26 @@
 FROM steamcmd
 
-# Dear srcds, plz don't crash. We have brought you these offerings.
 USER root
-RUN dpkg --add-architecture i386; apt-get update;  apt-get install -y libstdc++6:i386 libcurl4-gnutls-dev:i386
+
+ENV GAME=l4d2
+ENV APP_ID=222860
+
+WORKDIR /steam/${GAME}/
+
+RUN chown -R steam /steam/${GAME}/
 
 USER steam
-RUN mkdir -p /steam/l4d2
 
-WORKDIR /steam/steamcmd_linux
-RUN ./steamcmd.sh +login anonymous +force_install_dir ../l4d2 +app_update 222860 +quit
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
+ARG CACHE_DATE
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
 
-WORKDIR /steam/l4d2/
-ADD start*.sh .
+COPY configure.sh \
+    start.sh ./
+COPY server.cfg left4dead2/cfg/
 
-CMD ["./start-l4d2.sh"]
+USER root
+RUN chown steam:steam left4dead2/cfg/server.cfg
+USER steam
+
+ENTRYPOINT ["./start.sh"]

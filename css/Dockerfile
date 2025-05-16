@@ -1,21 +1,28 @@
 FROM steamcmd
 
-# Dear srcds, plz don't crash. We have brought you these offerings.
+ENV GAME=css
+ENV APP_ID=232330
+
+WORKDIR /steam/${GAME}/
+
 USER root
-RUN dpkg --add-architecture i386; apt-get update;  apt-get install -y libstdc++6:i386 libcurl4-gnutls-dev:i386
-
+RUN chown -R steam /steam/${GAME}/
 USER steam
-RUN mkdir -p /steam/css
 
-WORKDIR /steam/steamcmd_linux
-RUN ./steamcmd.sh +login anonymous +force_install_dir ../css +app_update 232330 +quit
-
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit
 ARG CACHE_DATE
-# do another update to catch updates since the original image was built
-# need to run docker build --build-arg CACHE_DATE="$(date)"
-RUN ./steamcmd.sh +login anonymous +force_install_dir ../css +app_update 232330 +quit
+RUN /steam/steamcmd_linux/steamcmd.sh +login anonymous +force_install_dir /steam/${GAME} +app_update ${APP_ID} +quit \
+    && rm -f /steam/css/cstrike/maps/test_hardware.bsp \
+    && rm -f /steam/css/cstrike/maps/test_speakers.bsp
 
-WORKDIR /steam/css/
-ADD start*.sh .
+COPY --chown=steam \
+    config/ \
+    configure.sh \
+    configure-base.sh \
+    generate-mapcycle.sh \
+    start.sh \
+    ./
 
-CMD ["./start-css.sh"]
+ENV SV_HOSTNAME="Counterstrike Source (Base)"
+
+ENTRYPOINT ["./start.sh"]
